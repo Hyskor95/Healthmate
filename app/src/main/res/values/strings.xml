@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">HealthMate</string>
+    <string name="home_title">HealthMate</string>
+    <string name="welcome_message">Good Morning!</string>
+    <string name="dashboard_subtitle">Your daily health overview</string>
+    <string name="steps_title">Daily Steps</string>
+    <string name="steps_value">6,250</string>
+    <string name="steps_description">Steps completed today</string>
+    <string name="calories_title">Calories Burned</string>
+    <string name="calories_value">420 kcal</string>
+    <string name="water_title">Water Intake</string>
+    <string name="water_value">1,500 ml</string>
+    <string name="add_record_title">Add Daily Record</string>
+    <string name="date_label">Record Date</string>
+    <string name="date_hint">Select record date</string>
+    <string name="steps_label">Daily Steps</string>
+    <string name="steps_hint">Enter daily steps</string>
+    <string name="calories_label">Calories Burned (kcal)</string>
+    <string name="calories_hint">Enter calories burned</string>
+    <string name="water_label">Water Intake (ml)</string>
+    <string name="water_hint">Enter water intake in ml</string>
+    <string name="save_record">Save Record</string>
+    <string name="health_records">Health Records</string>"
+    <string name="view_records">View Records</string>"
+    <string name="records_list_description">Health records list</string>
+</resources>
