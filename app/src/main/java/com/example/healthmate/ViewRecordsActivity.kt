@@ -58,17 +58,23 @@ class ViewRecordsActivity : AppCompatActivity() {
         }
     }
     private fun loadRecords(searchDate: String? = null) {
-
         lifecycleScope.launch {
-
-            if (searchDate.isNullOrBlank()) {
+            val records = if (searchDate.isNullOrBlank()) {
                 viewModel.loadRecords()
             } else {
                 viewModel.searchRecordsByDate(searchDate)
             }
 
+            if (records.isEmpty()) {
+                Toast.makeText(this@ViewRecordsActivity, "No records found", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    this@ViewRecordsActivity,
+                    "Records found: ${records.size}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-
     }
     private fun displayRecords(records: List<HealthRecord>) {
 
@@ -114,9 +120,17 @@ class ViewRecordsActivity : AppCompatActivity() {
             recordsContainer.addView(btnDelete)
 
             btnDelete.setOnClickListener {
-                lifecycleScope.launch {
-                    viewModel.deleteRecord(record)
-                }
+                androidx.appcompat.app.AlertDialog.Builder(this@ViewRecordsActivity)
+                    .setTitle("Confirm delete?")
+                    .setPositiveButton("Yes") { _, _ ->
+                        lifecycleScope.launch {
+                            viewModel.deleteRecord(record)
+                        }
+                    }
+                    .setNegativeButton("No") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
             }
             }
 
